@@ -1,0 +1,55 @@
+{
+  // 对应 @vue/tsconfig v0.5.1
+  "compilerOptions": {
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "noImplicitThis": true,
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "types": [
+      // uni-app + Vue 3 使用 Vite 构建，需要安装 vite
+      "vite/client",
+      // uni API 相关的 TypeScript 类型，需要安装 @dcloudio/types
+      "@dcloudio/types",
+      // wx API 相关的 TypeScript 类型，需要安装 miniprogram-api-typings
+      "miniprogram-api-typings",
+      // 为 uni-app 组件提供 TypeScript 类型，需要安装 @uni-helper/uni-app-types
+      "@uni-helper/uni-app-types",
+      // 为 uni-cloud 组件提供 TypeScript 类型，需要安装 @uni-helper/uni-cloud-types
+      "@uni-helper/uni-cloud-types",
+      // 为 uni-ui 组件提供 TypeScript 类型，需要安装 @uni-helper/uni-ui-types
+      "@uni-helper/uni-ui-types"
+      // 为所有相关组件提供 TypeScript 类型，需要安装 @uni-helper/uni-types
+      // 配置了这个就不需要配置前面三个
+      // "@uni-helper/uni-types"
+    ]
+  },
+  "vueCompilerOptions": {
+    // 调整 Volar（Vue 语言服务工具）解析行为，用于为 uni-app 组件提供 TypeScript 类型
+    "plugins": [
+      "@uni-helper/uni-app-types/volar-plugin"
+    ]
+    // 也可以使用 @uni-helper/uni-types/volar-plugin
+    // "plugins": ["@uni-helper/uni-types/volar-plugin"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "*.d.ts"
+  ]
+}
